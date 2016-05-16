@@ -30,4 +30,6 @@ ADD talend /data/talend
 # Define default command.
 #ENTRYPOINT ["/data/TestCouch2SF_0.1/TestCouch2SF/TestCouch2SF_run.sh"]
 #CMD ["sh","/data/TestCouch2SF_0.1/TestCouch2SF/TestCouch2SF_run.sh"]
-CMD ["sh","/data/talend/Couch/Couch_Sync_Data/Couch_Sync_Data_run.sh"]
+#CMD ["sh","/data/talend/Couch/Couch_Sync_Data/Couch_Sync_Data_run.sh"]
+* */1 * * * sh /home/sriniv/Downloads/C2S/Sync_Couch_SF/testC2S.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com
+
