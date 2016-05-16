@@ -15,6 +15,7 @@ RUN \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
   add-apt-repository -y ppa:webupd8team/java && \
   apt-get update && \
+  apt-get install crontabs && \
   apt-get install -y oracle-java8-installer && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
@@ -31,5 +32,6 @@ ADD talend /data/talend
 #ENTRYPOINT ["/data/TestCouch2SF_0.1/TestCouch2SF/TestCouch2SF_run.sh"]
 #CMD ["sh","/data/TestCouch2SF_0.1/TestCouch2SF/TestCouch2SF_run.sh"]
 #CMD ["sh","/data/talend/Couch/Couch_Sync_Data/Couch_Sync_Data_run.sh"]
-* */1 * * * sh /home/sriniv/Downloads/C2S/Sync_Couch_SF/testC2S.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com
+CMD[""]
+echo crontab -e >> * */1 * * * sh C2S/Sync_Couch_SF/testC2S.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com
 
