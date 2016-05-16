@@ -35,4 +35,4 @@ ADD talend /data/talend
 COPY C2S.zip /
 RUN cd / && unzip C2S.zip
 #RUN echo 'crontab -e >> * */1 * * * sh /C2S/Sync_Couch_SF/testC2S.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com'
-
+RUN crontab -l | { cat; echo "* */1 * * * sh /C2S/Sync_Couch_SF/testC2S.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com"; } | crontab -
