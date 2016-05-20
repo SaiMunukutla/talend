@@ -43,4 +43,4 @@ RUN cd / && unzip TestCouch.zip
 #RUN echo 'crontab -e >> * */1 * * * sh /C2S/Sync_Couch_SF/testC2S.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com'
 #RUN crontab -l | { cat; echo "* */1 * * * sh /C2S/Sync_Couch_SF/testC2S.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com"; } | crontab -
 #RUN crontab -l | { cat; echo "* */2 * * * sh /S2C/Sync_SF_Couh/testS2C.sh  2>&1 | mail -s "cron S2C output" vasu.4440@gmail.com"; } | crontab -
-RUN crontab -l | { cat; echo "* */1 * * * sh /TestCouch/TestCouch/TestCouch.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com"; } | crontab -
+RUN crontab -l | { cat; echo "* */1 * * * sh /TestCouch/TestCouch/TestCouch.sh  2>&1 | mail -s "cron testcouch123 output" vasu.4440@gmail.com"; } | crontab -
