@@ -32,12 +32,15 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 #ENTRYPOINT ["/data/TestCouch2SF_0.1/TestCouch2SF/TestCouch2SF_run.sh"]
 #CMD ["sh","/data/TestCouch2SF_0.1/TestCouch2SF/TestCouch2SF_run.sh"]
 #CMD ["sh","/data/talend/Couch/Couch_Sync_Data/Couch_Sync_Data_run.sh"]
-COPY C2S.zip /
-COPY S2C.zip /
+#COPY C2S.zip /
+#COPY S2C.zip /
+COPY TestCouch.zip /
 RUN apt-get update
 RUN apt-get install unzip
-RUN cd / && unzip C2S.zip
-RUN cd / && unzip S2C.zip
+#RUN cd / && unzip C2S.zip
+#RUN cd / && unzip S2C.zip
+RUN cd / && unzip TestCouch.zip
 #RUN echo 'crontab -e >> * */1 * * * sh /C2S/Sync_Couch_SF/testC2S.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com'
-RUN crontab -l | { cat; echo "* */1 * * * sh /C2S/Sync_Couch_SF/testC2S.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com"; } | crontab -
-RUN crontab -l | { cat; echo "* */2 * * * sh /S2C/Sync_SF_Couh/testS2C.sh  2>&1 | mail -s "cron S2C output" vasu.4440@gmail.com"; } | crontab -
+#RUN crontab -l | { cat; echo "* */1 * * * sh /C2S/Sync_Couch_SF/testC2S.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com"; } | crontab -
+#RUN crontab -l | { cat; echo "* */2 * * * sh /S2C/Sync_SF_Couh/testS2C.sh  2>&1 | mail -s "cron S2C output" vasu.4440@gmail.com"; } | crontab -
+RUN crontab -l | { cat; echo "* */1 * * * sh /TestCouch/TestCouch/TestCouch.sh  2>&1 | mail -s "cron C2S output" vasu.4440@gmail.com"; } | crontab -
